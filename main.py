@@ -5,7 +5,6 @@ If not, it asks the user again."""
 import hashlib
 import json
 
-
 # Generates and returns a sha3_256 hash from a string.
 def genhash(pword):
     hashedpword = hashlib.sha3_256(str.encode(pword)).hexdigest()
@@ -13,12 +12,10 @@ def genhash(pword):
 
 
 def is_valid_credentials(usrname,pwd):
-
     if Usr.authenticate(usrname,pwd):
         print("\nWelcome\n")
     else:
         print("\nSorry, wrong username or password!\nPlease try again\n")
-
 
 
 class UserData:
@@ -27,8 +24,6 @@ class UserData:
       self._data = json.load(f)
   def authenticate( self, username, password ):
       return username in self._data and self._data[ username ] == genhash(password)
-
-
 
 
 while __name__ == "__main__":
